@@ -39,15 +39,13 @@
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-// function showValues( obj ) {
-//   for(var prop in showValues){
-//     console.log[prop];
-    
-//   }
-// }
-
-
-
+function showValues ( obj ){
+  let str ="";
+  for (let prop in obj){
+    str += obj[prop]
+  }
+  return str;
+}
 ////////// PROBLEM 2 //////////
 
 /*
@@ -56,7 +54,14 @@
   Return the updated object.
 */
 
-//Code Here
+ function greaterThan10 (obj){
+   for(let prop in obj){
+     if(obj[val] >10){
+       obj[val] =0;
+     }
+   }
+   return obj;
+}
 
 
 
