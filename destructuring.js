@@ -21,7 +21,12 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-let {color, make, model, year} = carDetails;
+let {color, make, model, year} = {
+  color: "red",
+  make: "toyota",
+  model: "tacoma",
+  year: 1994
+};
 
 
 
@@ -72,7 +77,16 @@ function totalPopulation (obj){
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+function ingredients(obj){
+  let arr = [];
+  let { carb, fat, protein} ={
+    carb: obj.carb,
+    fat: obj.fat,
+    protein: obj.protein
+  }
+  arr.push(carb, fat, protein);
+  return arr;
+}
 
 
 
@@ -90,7 +104,9 @@ function totalPopulation (obj){
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
+function largeNumbers({first, second, third}){
+  return Math.min(first, second, third);
+}
 
 
 
@@ -102,6 +118,16 @@ function totalPopulation (obj){
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups({a,b,c}){
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  }
+  if (b.length > a.length && b.length > c.length) {
+    return b;
+  }
+  if (c.length > b.length && c.length > a.length) {
+    return c;
+  }
 
+}
 

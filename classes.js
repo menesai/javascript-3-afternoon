@@ -100,14 +100,49 @@ class Manager extends Employee{
 */
 
 //Code Here
-class ProgressiveManager extends Manager{
-  constructor(first_name,last_name,email,age){
-    super(first_name,last_name,email,age);
-    this.title='Not a Manager';
-    this.bonus=0;
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, title, bonus, reports) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = "Not a manager";
+    this.bonus = 0;
+  }
+  makeWidget() {
+    return `${this.first_name} ${this.last_name} Widget`;
+  }
+
+  hire(newEmployee) {
+    this.reports.push(newEmployee);
+    if (this.reports.length > 0 && this.reports.length <= 3) {
+      this.title = "Barely Manager";
+    }
+    if (this.reports.length > 3 && this.reports.length <= 10) {
+      this.title = "Mostly Manager";
+    }
+    if (this.reports.length > 10 && this.reports.length <= 50) {
+      this.title = "Manager";
+    }
+    if (this.reports.length > 50 && this.reports.length <= 100) {
+      this.title = "Manager Plus";
+    }
+    if (this.reports.length >= 101) {
+      this.title = "Bestest Manager";
+    }
+    return this.reports;
+  }
+
+  fire(employee) {
+    this.reports.splice(this.reports.indexOf(employee) - 1, 1);
+    if (this.reports === 0) {
+      return "Not a manager";
+    }
+    this.bonus += 100;
+    return this.reports;
   }
 }
-
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
